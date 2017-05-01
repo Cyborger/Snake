@@ -34,6 +34,7 @@ class PlayingState(GameState.GameState):
     def Update(self):
         self.snake.Move()
         self.CheckForEatenBerries()
+        self.snake.CheckOffScreen(self.game.screen_width, self.game.screen_height)
 
     def DrawScreen(self):
         for piece in self.snake.pieces:

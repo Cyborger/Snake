@@ -13,18 +13,16 @@ class Direction(Enum):
 class Snake:
     def __init__(self):
         self.block_size = 16
-        starting_piece_1 = SnakePiece.SnakePiece(48, 0)
-        starting_piece_2 = SnakePiece.SnakePiece(32, 0)
-        starting_piece_3 = SnakePiece.SnakePiece(16, 0)
-        starting_piece_4 = SnakePiece.SnakePiece(0, 0)
-        self.pieces = [starting_piece_1, starting_piece_2, starting_piece_3, starting_piece_4]
+        starting_piece_1 = SnakePiece.SnakePiece(0, 0)
+        starting_piece_2 = SnakePiece.SnakePiece(16, 0)
+        self.pieces = [starting_piece_1, starting_piece_2]
         self.direction = Direction.NONE
         self.growing = False
 
     def ChangeDirection(self, direction):
         new_direction = direction.value % 2
         current_direction = self.direction.value % 2
-        if not new_direction == current_direction:
+        if not new_direction == current_direction or self.direction == Direction.NONE:
             self.direction = direction
 
     def Move(self):
@@ -58,6 +56,23 @@ class Snake:
                     new_piece = SnakePiece.SnakePiece(held_position.x, held_position.y)
                     self.pieces.append(new_piece)
                     self.growing = False
+
+    def CheckOffScreen(self, screen_width, screen_height):
+        self.CheckHorizontalOffScreen(screen_width)
+        self.CheckVerticalOffScreen(screen_height)
+        
+    def CheckHorizontalOffScreen(self, screen_width):
+        for piece in self.pieces:
+            if piece.rect.x < 0:
+                piece.rect.x = screen_width - 16
+            elif piece.rect.x > screen_width:
+                piece.rect.x = 0
+    def CheckVerticalOffScreen(self, screen_height):
+        for piece in self.pieces:
+            if piece.rect.y < 0:
+                piece.rect.y = screen_height - 16
+            elif piece.rect.y > screen_height:
+                piece.rect.y = 0
 
     def BerryEaten(self):
         self.growing = True
