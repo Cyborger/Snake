@@ -17,15 +17,18 @@ class Snake:
         starting_piece_2 = SnakePiece.SnakePiece(16, 0)
         self.pieces = [starting_piece_1, starting_piece_2]
         self.direction = Direction.NONE
+        self.new_direction = Direction.NONE
         self.growing = False
+        self.alive = True
 
     def ChangeDirection(self, direction):
         new_direction = direction.value % 2
         current_direction = self.direction.value % 2
         if not new_direction == current_direction or self.direction == Direction.NONE:
-            self.direction = direction
+            self.new_direction = direction
 
     def Move(self):
+        self.direction = self.new_direction
         if self.direction == Direction.UP:
             self.MoveY(-self.block_size)
         elif self.direction == Direction.RIGHT:
@@ -60,18 +63,19 @@ class Snake:
     def CheckOffScreen(self, screen_width, screen_height):
         self.CheckHorizontalOffScreen(screen_width)
         self.CheckVerticalOffScreen(screen_height)
-        
+
     def CheckHorizontalOffScreen(self, screen_width):
         for piece in self.pieces:
             if piece.rect.x < 0:
                 piece.rect.x = screen_width - 16
-            elif piece.rect.x > screen_width:
+            elif piece.rect.x >= screen_width:
                 piece.rect.x = 0
+
     def CheckVerticalOffScreen(self, screen_height):
         for piece in self.pieces:
             if piece.rect.y < 0:
                 piece.rect.y = screen_height - 16
-            elif piece.rect.y > screen_height:
+            elif piece.rect.y >= screen_height:
                 piece.rect.y = 0
 
     def BerryEaten(self):

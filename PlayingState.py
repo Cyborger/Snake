@@ -67,8 +67,8 @@ class PlayingState(GameState.GameState):
             self.berries.append(new_berry)
 
     def GenerateBerryPosition(self):
-        possible_x = self.game.screen_width / 16 - 16
-        possible_y = self.game.screen_height /16 - 16
+        possible_x = self.game.screen_width / 16 - 1
+        possible_y = self.game.screen_height / 16 - 1
         gen_x = random.randint(0, possible_x)
         gen_y = random.randint(0, possible_y)
         return (gen_x * 16, gen_y * 16)
