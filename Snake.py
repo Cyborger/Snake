@@ -60,6 +60,13 @@ class Snake:
                     self.pieces.append(new_piece)
                     self.growing = False
 
+    def CheckDeath(self):
+        for piece in self.pieces:
+            collisions = pygame.sprite.spritecollide(piece, self.pieces, False)
+            for collision in collisions:
+                if collision is not piece:
+                    self.alive = False
+                    
     def CheckOffScreen(self, screen_width, screen_height):
         self.CheckHorizontalOffScreen(screen_width)
         self.CheckVerticalOffScreen(screen_height)

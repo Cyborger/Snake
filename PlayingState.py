@@ -35,6 +35,9 @@ class PlayingState(GameState.GameState):
         self.snake.Move()
         self.CheckForEatenBerries()
         self.snake.CheckOffScreen(self.game.screen_width, self.game.screen_height)
+        self.snake.CheckDeath()
+        self.CheckGameover()
+        print(self.snake.alive)
 
     def DrawScreen(self):
         for piece in self.snake.pieces:
@@ -49,6 +52,10 @@ class PlayingState(GameState.GameState):
                 self.berries_collected += 1
                 self.snake.BerryEaten()
                 self.GenerateBerries(self.max_berries - len(self.berries))
+
+    def CheckGameover(self):
+        if not self.snake.alive:
+            self.game.Gameover()
 
     def GenerateBerries(self, number):
         for i in range(number):

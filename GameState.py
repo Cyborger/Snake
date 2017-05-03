@@ -47,6 +47,12 @@ class GameState:
                 if event.key == pygame.K_F1:
                     self.game.running = False
 
+    def IfKeyPressed(self, events):
+        for event in events:
+            if event.type == pygame.KEYDOWN:
+                return True
+        return False
+        
     # Handle the basic events but also check to see any buttons are being pressed
     def HandleButtonEvents(self, events):
         for event in events:
@@ -54,6 +60,9 @@ class GameState:
                 for button in self.buttons:
                     if button.hovered:
                         button.Clicked()
+
+    def UpdateSprites(self):
+        pass
 
     # Check to see if mouse is hovering over any buttons, will call button.Hovered() if true
     def UpdateButtons(self):
