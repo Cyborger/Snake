@@ -54,3 +54,63 @@ gameover = ["wwww  wwwww w   w wwwww wwwww w   w wwwww wwwww",
             "w www wwwww w w w www   w   w  w w  www   wwwww",
             "w  w  w   w w   w w     w   w  w w  w     ww   ",
             "wwww  w   w w   w wwwww wwwww   w   wwwww w www"]
+
+play_button_unhovered = ["wwwwwwwwwwwwwwwwwwwwwwwwwww",
+                         "w                         w",
+                         "w wwwww w     wwwww w   w w",
+                         "w w   w w     w   w  w w  w",
+                         "w wwwww w     wwwww   w   w",
+                         "w w     w     w   w   w   w",
+                         "w w     wwwww w   w   w   w",
+                         "w                         w",
+                         "wwwwwwwwwwwwwwwwwwwwwwwwwww"]
+
+play_button_hovered = ["ggggggggggggggggggggggggggg",
+                       "g                         g",
+                       "g wwwww w     wwwww w   w g",
+                       "g w   w w     w   w  w w  g",
+                       "g wwwww w     wwwww   w   g",
+                       "g w     w     w   w   w   g",
+                       "g w     wwwww w   w   w   g",
+                       "g                         g",
+                       "ggggggggggggggggggggggggggg"]
+
+exit_button_unhovered = ["wwwwwwwwwwwwwwwwwwwwwwwwwww",
+                         "w                         w",
+                         "w wwwww w   w wwwww wwwww w",
+                         "w w      w w    w     w   w",
+                         "w www     w     w     w   w",
+                         "w w      w w    w     w   w",
+                         "w wwwww w   w wwwww   w   w",
+                         "w                         w",
+                         "wwwwwwwwwwwwwwwwwwwwwwwwwww"]
+
+exit_button_hovered = ["ggggggggggggggggggggggggggg",
+                       "g                         g",
+                       "g wwwww w   w wwwww wwwww g",
+                       "g w      w w    w     w   g",
+                       "g www     w     w     w   g",
+                       "g w      w w    w     w   g",
+                       "g wwwww w   w wwwww   w   g",
+                       "g                         g",
+                       "ggggggggggggggggggggggggggg"]
+
+highscores_unhovered = ["wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+                        "w                                                             w",
+                        "w w   w wwwww wwww  w   w wwwww wwwww wwwww wwwww wwwww wwwww w",
+                        "w w   w   w   w     w   w w     w     w   w w   w w     w     w",
+                        "w wwwww   w   w www wwwww wwwww w     w   w wwwww ww    wwwww w",
+                        "w w   w   w   w  w  w   w     w w     w   w ww    w         w w",
+                        "w w   w wwwww wwww  w   w wwwww wwwww wwwww w www wwwww wwwww w",
+                        "w                                                             w",
+                        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"]
+
+highscores_hovered = ["ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+                      "g                                                             g",
+                      "g w   w wwwww wwww  w   w wwwww wwwww wwwww wwwww wwwww wwwww g",
+                      "g w   w   w   w     w   w w     w     w   w w   w w     w     g",
+                      "g wwwww   w   w www wwwww wwwww w     w   w wwwww ww    wwwww g",
+                      "g w   w   w   w  w  w   w     w w     w   w ww    w         w g",
+                      "g w   w wwwww wwww  w   w wwwww wwwww wwwww w www wwwww wwwww g",
+                      "g                                                             g",
+                      "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"]
