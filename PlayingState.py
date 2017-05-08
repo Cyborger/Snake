@@ -34,10 +34,10 @@ class PlayingState(GameState.GameState):
     def Update(self):
         self.snake.Move()
         self.CheckForEatenBerries()
-        self.snake.CheckOffScreen(self.game.screen_width, self.game.screen_height)
+        self.snake.CheckOffScreen(self.game.screen_width,
+                                  self.game.screen_height)
         self.snake.CheckDeath()
         self.CheckGameover()
-        print(self.snake.alive)
 
     def DrawScreen(self):
         for piece in self.snake.pieces:
@@ -79,3 +79,6 @@ class PlayingState(GameState.GameState):
         gen_x = random.randint(0, possible_x)
         gen_y = random.randint(0, possible_y)
         return (gen_x * 16, gen_y * 16)
+
+    def Reset(self):
+        self.snake.ResetSize()

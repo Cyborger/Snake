@@ -66,7 +66,7 @@ class Snake:
             for collision in collisions:
                 if collision is not piece:
                     self.alive = False
-                    
+
     def CheckOffScreen(self, screen_width, screen_height):
         self.CheckHorizontalOffScreen(screen_width)
         self.CheckVerticalOffScreen(screen_height)
@@ -87,3 +87,10 @@ class Snake:
 
     def BerryEaten(self):
         self.growing = True
+
+    def ResetSize(self):
+        starting_piece_1 = SnakePiece.SnakePiece(0, 0)
+        starting_piece_2 = SnakePiece.SnakePiece(16, 0)
+        self.pieces = [starting_piece_1, starting_piece_2]
+        self.alive = True
+        self.direction = Direction.NONE

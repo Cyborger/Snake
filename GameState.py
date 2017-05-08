@@ -27,8 +27,8 @@ class GameState:
 
     # Scale the screen that everything is blitted to and then blit it to the actual display
     def UpdateDisplay(self):
-        scaled_screen = pygame.transform.scale(self.game.screen, (self.game.display_info.current_w,
-                                                                  self.game.display_info.current_h))
+        scaled_screen = pygame.transform.scale(self.game.screen, (self.game.rs_width,
+                                                                  self.game.rs_height))
         self.game.render_screen.blit(scaled_screen, (0, 0))
         pygame.display.flip()
 
@@ -52,7 +52,7 @@ class GameState:
             if event.type == pygame.KEYDOWN:
                 return True
         return False
-        
+
     # Handle the basic events but also check to see any buttons are being pressed
     def HandleButtonEvents(self, events):
         for event in events:
