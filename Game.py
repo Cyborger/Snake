@@ -2,6 +2,7 @@ import pygame
 import PlayingState
 import StartMenuState
 import GameoverState
+import PauseState
 import sys
 
 
@@ -22,7 +23,10 @@ class Game:
         self.start_menu_state = StartMenuState.StartMenuState(self)
         self.playing_state = PlayingState.PlayingState(self)
         self.gameover_state = GameoverState.GameoverState(self)
+        self.pause_state = PauseState.PauseState(self)
         self.current_state = None
+
+        pygame.mouse.set_visible(False)
         # When running is false, the program will end
         self.running = True
 
@@ -51,3 +55,6 @@ class Game:
 
     def ChangeState(self, state):
         self.current_state = state
+
+    def Pause(self):
+        self.ChangeState(self.pause_state)

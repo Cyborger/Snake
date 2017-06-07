@@ -13,8 +13,8 @@ class Direction(Enum):
 class Snake:
     def __init__(self):
         self.block_size = 16
-        starting_piece_1 = SnakePiece.SnakePiece(0, 0)
-        starting_piece_2 = SnakePiece.SnakePiece(16, 0)
+        starting_piece_1 = SnakePiece.SnakePiece(768 / 2, 224)
+        starting_piece_2 = SnakePiece.SnakePiece(768 / 2, 224 - 16)
         self.pieces = [starting_piece_1, starting_piece_2]
         self.direction = Direction.NONE
         self.new_direction = Direction.NONE
@@ -73,24 +73,21 @@ class Snake:
 
     def CheckHorizontalOffScreen(self, screen_width):
         for piece in self.pieces:
-            if piece.rect.x < 0:
-                piece.rect.x = screen_width - 16
-            elif piece.rect.x >= screen_width:
-                piece.rect.x = 0
+            if piece.rect.x < 0 or piece.rect.x >= screen_width:
+                self.alive = False
 
     def CheckVerticalOffScreen(self, screen_height):
         for piece in self.pieces:
-            if piece.rect.y < 0:
-                piece.rect.y = screen_height - 16
-            elif piece.rect.y >= screen_height:
-                piece.rect.y = 0
+            if piece.rect.y < 0 or piece.rect.y >= screen_height:
+                self.alive = False
 
     def BerryEaten(self):
         self.growing = True
 
     def ResetSize(self):
-        starting_piece_1 = SnakePiece.SnakePiece(0, 0)
-        starting_piece_2 = SnakePiece.SnakePiece(16, 0)
+        starting_piece_1 = SnakePiece.SnakePiece(768 / 2, 224)
+        starting_piece_2 = SnakePiece.SnakePiece(768 / 2, 224 - 16)
         self.pieces = [starting_piece_1, starting_piece_2]
         self.alive = True
         self.direction = Direction.NONE
+        self.new_direction = Direction.NONE
