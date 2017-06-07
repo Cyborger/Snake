@@ -56,7 +56,7 @@ gameover = ["wwww  wwwww w   w wwwww wwwww w   w wwwww wwwww",
             "wwww  w   w w   w wwwww wwwww   w   wwwww w www"]
 
 paused = ["wwwww wwwww w   w wwwww wwwww wwww ",
-          "w  ww w   w w   w w     w     w   w",
+          "w   w w   w w   w w     w     w   w",
           "wwwww wwwww w   w wwwww www   w   w",
           "w     w   w w   w     w w     w   w",
           "w     w   w wwwww wwwww wwwww wwww "]

@@ -17,16 +17,14 @@ class PlayingState(GameState.GameState):
     def HandleEvents(self):
         events = pygame.event.get()
         self.HandleBasicEvents(events)
-        self.HandleMovementKeypresses(events)
+        self.HandleKeypresses(events)
+
+    def HandleKeypresses(self, events):
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     self.game.Pause()
-
-    def HandleMovementKeypresses(self, events):
-        for event in events:
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_w:
+                elif event.key == pygame.K_w:
                     self.snake.ChangeDirection(Snake.Direction.UP)
                 elif event.key == pygame.K_d:
                     self.snake.ChangeDirection(Snake.Direction.RIGHT)
